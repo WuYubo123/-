@@ -1,0 +1,76 @@
+/*
+SQLyog Ultimate v8.32 
+MySQL - 5.5.36 : Database - flightsystem
+*********************************************************************
+*/
+
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`flightsystem` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+USE `flightsystem`;
+
+/*Table structure for table `admini` */
+
+DROP TABLE IF EXISTS `admini`;
+
+CREATE TABLE `admini` (
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `admini` */
+
+insert  into `admini`(`username`,`password`) values ('吴玉博','1234');
+
+/*Table structure for table `destine` */
+
+DROP TABLE IF EXISTS `destine`;
+
+CREATE TABLE `destine` (
+  `destine_name` varchar(20) NOT NULL,
+  `destine_id` varchar(50) NOT NULL,
+  `destine_sex` varchar(5) DEFAULT NULL,
+  `destine_age` int(11) DEFAULT NULL,
+  `destine_phone` int(11) NOT NULL,
+  `destine_address` varchar(50) DEFAULT NULL,
+  `flight_id` varchar(50) NOT NULL,
+  `destine_count` int(11) NOT NULL,
+  `destine_date` varchar(50) DEFAULT NULL,
+  `destine_status` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `destine` */
+
+insert  into `destine`(`destine_name`,`destine_id`,`destine_sex`,`destine_age`,`destine_phone`,`destine_address`,`flight_id`,`destine_count`,`destine_date`,`destine_status`) values ('张三','3737001','男',25,123456,'北京市朝阳区','G005',2,'2020-12-19 14:45','否'),('张三','3737001','男',23,22222,'北京朝阳','K343',3,'2020-12-14 8:30','否'),('张三','3737001','nan',55,234,'be','G001',4,'2020-12-14 8:30','否'),('李四','3737002','男',66,3333,'山东济南','G002',7,'2020-12-14 8:30','是'),('李四','3737002','男',55,55566,'北京朝阳','G004',8,'2020-12-14 8:30','是');
+
+/*Table structure for table `flight` */
+
+DROP TABLE IF EXISTS `flight`;
+
+CREATE TABLE `flight` (
+  `flight_id` varchar(50) NOT NULL,
+  `begin_from` varchar(20) NOT NULL,
+  `end_from` varchar(20) NOT NULL,
+  `begin_time` varchar(30) NOT NULL,
+  `end_time` varchar(30) NOT NULL,
+  `remain` int(11) NOT NULL,
+  `ticket_price` float NOT NULL,
+  PRIMARY KEY (`flight_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `flight` */
+
+insert  into `flight`(`flight_id`,`begin_from`,`end_from`,`begin_time`,`end_time`,`remain`,`ticket_price`) values ('G001','北京','济南','2020-12-10 8：20','2020-12-10 10：20',95,660),('G002','上海','深圳','2020-12-11 13：40','2020-12-11 15：40',48,550),('G004','广东','济南','2020-12-15 16：30','2020-12-15 17：30',38,220),('G005','北京','济南','2020-12-10 8：30','2020-12-10 9：30',55,330),('G009','上海','重庆','2020-12-13 8：40','2020-12-13 12：40',64,890),('G023','北京','济南','2020-12-15 18：30','2020-12-15 18：30',80,999),('G666','北京','纽约','2020-12-17 5：30','2020-12-17 10：30',62,567),('G735','北京','上海','2020-12-16 14：40','2020-12-16 16：40',80,778),('G789','北京','济南','2020-12-10 14：30','2020-12-10 14：30',65,899),('G888','莱阳','北京','2020-12-10 09：30','2020-12-10 14：30',99,999),('K343','上海','深圳','2020-12-12 15：25','2020-12-12 16：25',63,500),('K678','上海','深圳','2020-12-11 15：25','2020-12-11 16：25',75,456);
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
